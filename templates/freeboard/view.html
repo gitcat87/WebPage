@@ -1,0 +1,152 @@
+{% extends 'base.html' %} {% block video2%}
+
+<script>
+  document.addEventListener('DOMContentLoaded',()=>{
+    const $delete = document.getElementById('delete')
+
+  setTimeout(() => {
+      document.body.classList.add("reveal");
+    },500);
+
+    $delete.addEventListener('click',(e)=>{
+      const check = confirm("정말로 삭제하시겠습니까? 삭제하면 복구할 수 없습니다.")
+      if(check){
+        alert('삭제되었습니다.')
+      }
+      else{
+        e.preventDefault()
+      }
+    })
+      
+    })
+</script>
+<div id="loader" style="z-index: 1">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div id="bg-overlay"></div>
+<video
+  src="/static/videos/video1.mp4"
+  autoplay
+  muted
+  loop
+  id="bgvid-01"
+></video>
+{% endblock%}
+
+<!-- 정렬 관련해서는 https://hianna.tistory.com/675 참조!-->
+{% block view%}
+<style>
+  hr {
+    color: rgb(255, 255, 255);
+  }
+  .view-wrap {
+    height: 60vh;
+  }
+  .viewinner-wrap {
+    height: 60vh;
+    width: 55%;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.616);
+    box-shadow: 0 0 100px 10px #000000d0;
+  }
+  .viewinner-wrap > h6 {
+    text-align: left;
+    color: white;
+  }
+  .viewinner-wrap > div {
+    text-align: left;
+    color: white;
+  }
+  #title-div {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin-left: 3rem;
+  }
+  #writerAndhits-wrap {
+    margin-top: 3rem;
+    display: flex;
+  }
+  #writer-wrap {
+    display: inline-block;
+    margin-left: 3rem;
+  }
+  #hits-wrap {
+    margin-left: 60%;
+    display: inline-block;
+  }
+  #body-text {
+    max-height: 100%;
+
+  }
+  #button1 > button {
+    width: 100px;
+    border-radius: 0.5rem;
+    border: transparent;
+    text-decoration: none;
+    color: black;
+    
+  }
+  #button2{
+      margin-left: 40%;
+
+  }
+  #button2> button{
+    border: transparent;
+      width: 100px;
+      border-radius: 0.5rem;
+      
+  }
+  #button2> button:hover{
+    background-color: rgba(74, 191, 245, 0.829);
+    transition-duration: 0.1s;
+  }
+
+</style>
+<div class="view-wrap">
+  <div class="viewinner-wrap">
+    <h6 id="title">&nbsp;&nbsp;&nbsp;&nbsp</h6>
+    <div id="title-div">{{res[1]}}</div>
+
+    <div id="writerAndhits-wrap">
+      <div id="writer-wrap">
+        <div>
+          <p>작성자:&nbsp;&nbsp;&nbsp;&nbsp;{{res[3]}}</p>
+          <p></p>
+        </div>
+      </div>
+      <div id="hits-wrap">
+        <div>
+          <p>
+            조회수:&nbsp;&nbsp;{{res[4]}}&nbsp;&nbsp;&nbsp;&nbsp;작성일:&nbsp;&nbsp;{{res[5]}}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+    <!--내용 -->
+    <div style="width: 90%; margin: auto;">
+    <div id="body-text">{{res[2]}}</div>
+  </div>
+
+  </div>
+</div>
+<div id="view-bottom" style="display: flex; justify-content: center; margin-top: 1rem ;">
+  <div id="button1">
+    <button><a href="/freeboard/updateform?idx={{res[0]}}"  style="text-decoration: none; color:black">수정</a></button>
+    <button><a href="/freeboard/delete?idx={{res[0]}}" style="text-decoration: none; color:black" id="delete">삭제</a></button>
+  </div>
+  <div id="button2">
+  <button><a href="board" style="text-decoration: none; color:black">목록으로</a></button>
+</div>
+</div>
+
+{% endblock%}

@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+*{padding: 0; margin: 0; font-family: 'Bangers', Noto Sans KR;}
+
+a{
+    cursor: pointer;
+}
+#bgvid-01{
+    width: 100%; height: 100vh;
+    object-fit: cover; position: absolute; z-index: -1
+}
+
+
+#bg-overlay{
+    left: 0; right: 0; top: 0; bottom: 0;
+    position: absolute;
+    object-fit: cover;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.main-screen{
+    width: 100vw;
+    height: 100vh;
+}   
+.top{    
+    height: 15vh;
+}
+.top>a>h1{
+    padding: 1rem;
+    color: white;
+    position: absolute;
+    margin: 100px 0 0 100px;
+    border: 3px solid white; 
+    display: inline;
+}
+.top>a>h1:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+    transition-duration: 0.5s;
+}
+.top>a>h2{
+    padding: 1rem;
+    position: absolute;
+    margin: 100px 0 0 100px;
+    right:300px ;
+    color: white;
+    border: 3px solid white;
+    display: inline;
+}
+.top>a>h2:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+    transition-duration: 0.5s;
+}
+
+.middle{
+    padding-top: 100px;
+    text-align: center;    
+    height: 75vh;
+    display: block;
+}
+.bottom{
+    width: 100%;
+  
+    display: flex;
+}
+#bottomh1-wrap{
+    float: right;
+    color: bisque;
+}
+#bottomclock-wrap>div{ 
+    margin-right: 2rem;   
+    display: flex; align-items: center;
+}
+#bottomclock-wrap{
+    margin-left: auto;    
+    color:azure
+}
+#bottom-clock{
+    
+    color: azure;
+    display: flex; 
+}
+#bottom-clock>h1{
+    display: flex;
+    color: bisque;
+    margin-left: 1rem;
+}
+
+
+
+
+
+/* 부드러운 화면 전환 막대 애니메이션 시작*/
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+#loader > div {
+    width: 100%;
+    height: 12.5%;
+    background: rgb(35, 53, 88);
+    transition: transform 500ms;
+}
+#loader > div:nth-child(1) {
+    transition-delay: 100ms;
+}
+#loader > div:nth-child(2) {
+    transition-delay: 200ms;
+}
+#loader > div:nth-child(3) {
+    transition-delay: 300ms;
+}
+#loader > div:nth-child(4) {
+    transition-delay: 400ms;
+}
+#loader > div:nth-child(5) {
+    transition-delay: 500ms;
+}
+#loader > div:nth-child(6) {
+    transition-delay: 600ms;
+}
+#loader > div:nth-child(7) {
+    transition-delay: 700ms;
+}
+#loader > div:nth-child(8) {
+    transition-delay: 800ms;
+}
+body:not(.hidden).reveal #loader > div {
+    transform: translateX(-100%);
+}
+/* 부드러운 화면 전환 막대 애니메이션 끝*/
+
+
+/* 공지사항 보드 스타일 시작*/
+
+#board-table{
+    margin: auto;
+    width: 55%;
+    background-color: rgba(34, 24, 24, 0.623);
+}
+#board-table>tbody>tr th{
+    
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: whitesmoke;
+    padding: 0 50px 0 50px;
+}
+
+#board-table>tbody>tr td{
+    font-family: Noto Sans KR, sans-serif;
+    font-size: 16px;
+    color: aliceblue;
+}
+
+a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+#my-ul{
+    list-style: none;
+}
+
+#my-ul>li{
+
+    font-size: 19px;
+    margin-top: 50px;
+    padding: 0 20px 0 20px;
+    border: 1px solid white;  
+    border-radius: 1rem 1rem 1rem 1rem;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+li>a{
+    color: black;
+}
+#my-ul>li:hover{
+    background-color: white;
+    transition-duration: 0.5s;
+}
+
+
+/*로더 아이콘* 시작*/
+.sk-cube-grid .sk-cube {
+    width: 33%;
+    height: 33%;
+    background-color: #ffffff;
+    float: left;
+    -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+            animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+  }
+.sk-cube-grid .sk-cube1 {
+-webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube2 {
+-webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube3 {
+-webkit-animation-delay: 0.4s;
+        animation-delay: 0.4s; }
+.sk-cube-grid .sk-cube4 {
+-webkit-animation-delay: 0.1s;
+        animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube5 {
+-webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube6 {
+-webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube7 {
+-webkit-animation-delay: 0s;
+        animation-delay: 0s; }
+.sk-cube-grid .sk-cube8 {
+-webkit-animation-delay: 0.1s;
+        animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube9 {
+-webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+} 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1); 
+}
+}
+
+@keyframes sk-cubeGridScaleDelay {
+0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+} 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1);
+} 
+}
+/*로더 아이콘 끝*/

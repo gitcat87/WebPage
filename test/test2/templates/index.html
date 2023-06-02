@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{margin: auto; border-spacing: 100px 50px;}
+
+        tr{
+            margin-left: 100px;
+        }
+        tr>td{
+            
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            border-radius: 5rem 5rem 5rem 5rem;
+            text-align: center;
+
+        }
+        #numbers-form{
+            margin-left: 30%;
+        
+        }
+      
+        input{            
+            width: 100px;
+            height: 100px;
+            border-radius: 5rem 5rem 5rem 5rem;
+            text-align: center;
+            font-size: 50px;
+            margin-left: 2rem;
+        }
+        #result>td{
+            border: 1px solid black;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{       
+        
+        
+        })
+
+       
+    </script>
+</head>
+<body>
+    <table>
+        <tr id="thisweek" >
+            <td>{{numbersValue[0]}}</td>
+            <td>{{numbersValue[1]}}</td>
+            <td>{{numbersValue[2]}}</td>
+            <td>{{numbersValue[3]}}</td>
+            <td>{{numbersValue[4]}}</td>
+            <td>{{numbersValue[5]}}</td>
+        </tr>
+        <tr id="yournumber">
+            <td>{{num1}}</td>
+            <td>{{num2}}</td>
+            <td>{{num3}}</td>
+            <td>{{num4}}</td>
+            <td>{{num5}}</td>
+            <td>{{num6}}</td>
+        </tr>      
+    </table>
+    <div id="numbers-form">
+    <form action="/lotto" method="POST">
+        <input type="text" name="num1">
+        <input type="text" name="num2">
+        <input type="text" name="num3">
+        <input type="text" name="num4">
+        <input type="text" name="num5">
+        <input type="text" name="num6">
+        <input type="submit" value="전송">
+    </form>
+    </div>
+    <h1></h1>
+</div>
+</body>
+</html>

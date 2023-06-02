@@ -1,0 +1,36 @@
+---
+marp: true
+theme: gaia
+---
+
+<style scoped>
+pre {
+   font-size: 16px;
+}
+</style>
+
+<div class="wrap" style="margin-bottom: 1rem;">
+
+# Begin Presentaion
+
+그림을 넣어봅시다
+"![사이즈] ("경로")
+HTML,CSS도 적용 가능합니다. 자동완성은 안되는듯
+HTML태그가 적용이 안 될때는 설정 -> Markdown Marp:Enable 설정을 체크 해주면 됩니다.
+div속 div를 감싸는 기능이 적용이 안되는 것 같습니다
+백틱 세번을 쓰고 하이라이트할 언어를 써주면
+그 언어에 맞는 하이라이트 속성을 제공해줍니다.
+
+---
+
+# 예시
+
+python
+```python
+a = "hi"
+print(a)
+>>>hi
+```
+
+코드의 하이라이트 스타일을 조정하려면 문서 상단의 style scoped를 보세요
+기타 자습서는 Marpit을 검색

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      const button = document.querySelector('button')
+      const cube = document.querySelector('.sk-cube-grid')
+
+      document.addEventListener("click", () => {
+    document.body.classList.toggle("reveal")
+});
+
+
+      cube.style.visibility = "hidden"
+
+      button.addEventListener('click',()=>{
+        setTimeout(()=>{cube.style.visibility = "visible"},1000)
+        setTimeout(()=>{cube.style.visibility = "hidden"},2000)
+      })
+    })
+  </script>
+  <style>
+    .sk-cube-grid {
+  width: 200px;
+  height: 200px;
+  margin: 100px auto;
+}
+
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  background-color: #c41212;
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+}
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s; }
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s; }
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1); 
+  }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1);
+  } 
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+#loader > div {
+    width: 100%;
+    height: 12.5%;
+    background: rgb(35, 53, 88);
+    transition: transform 500ms;
+}
+#loader > div:nth-child(1) {
+    transition-delay: 100ms;
+}
+#loader > div:nth-child(2) {
+    transition-delay: 200ms;
+}
+#loader > div:nth-child(3) {
+    transition-delay: 300ms;
+}
+#loader > div:nth-child(4) {
+    transition-delay: 400ms;
+}
+#loader > div:nth-child(5) {
+    transition-delay: 500ms;
+}
+#loader > div:nth-child(6) {
+    transition-delay: 600ms;
+}
+#loader > div:nth-child(7) {
+    transition-delay: 700ms;
+}
+#loader > div:nth-child(8) {
+    transition-delay: 800ms;
+}
+body:not(.hidden).reveal #loader > div {
+    transform: translateX(-100%);
+}
+  </style>
+</head>
+<body>
+  <div class="sk-cube-grid" style="position: absolute; z-index: 3;">
+    <div class="sk-cube sk-cube1"></div>
+    <div class="sk-cube sk-cube2"></div>
+    <div class="sk-cube sk-cube3"></div>
+    <div class="sk-cube sk-cube4"></div>
+    <div class="sk-cube sk-cube5"></div>
+    <div class="sk-cube sk-cube6"></div>
+    <div class="sk-cube sk-cube7"></div>
+    <div class="sk-cube sk-cube8"></div>
+    <div class="sk-cube sk-cube9"></div>
+  </div>
+  <button>버튼</button>
+  
+<div id="loader" >
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+</body>
+</html>

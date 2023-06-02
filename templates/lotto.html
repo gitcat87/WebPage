@@ -1,0 +1,233 @@
+{% extends "base.html" %} {%block video1%}
+<script>
+  setTimeout(() => {
+    document.body.classList.add("reveal");
+  });
+</script>
+<div id="loader" style="z-index: 2">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div id="bg-overlay"></div>
+<video src="static/videos/video2.mp4" autoplay muted loop id="bgvid-01"></video>
+
+{%endblock%} {% block lotto%}
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const $h1 = document.querySelector("#lotto-title");
+    const $numbers = document.querySelectorAll('.number')
+    const $input =document.querySelectorAll('.inputnumber')
+    
+    
+    const $formbtn = document.getElementById('formbutton').addEventListener('click',()=>{
+        $h2 = document.getElementById('ckresultH1').style.visibility = 'visible'
+        
+    })
+    
+
+    setInterval(() => {
+      $h1.style.color = "red";
+      $h1.style.fontsize;
+    }, 100);
+    setInterval(() => {
+      $h1.style.color = "green";
+    }, 200);
+
+    setInterval(() => {
+      $h1.style.color = "orange";
+    }, 300);
+
+    $numbers.forEach((num)=>{
+      num.addEventListener("mouseover",(e)=>{
+        /*console.log("올렸음")*/
+        e.target.style.color="red"
+      })
+    })
+        $numbers.forEach((num)=>{
+      num.addEventListener("mouseout",(e)=>{
+        e.target.style.color="white"
+      })
+    })
+        $input.forEach((num)=>{
+      num.addEventListener('click',(e)=>{
+  
+        e.target.value =""
+      })
+    })
+    $input.forEach((num)=>{
+      num.addEventListener('keyup',(e)=>{
+         console.log(e.keyCode)
+        if(e.keyCode==9){
+        e.target.value =""}
+      })
+    })
+
+
+  });
+</script>
+<style>
+  .lotto-body {
+    display: flex;
+    margin-left: 18%;
+  }
+  .lotto-body > div {
+    border-radius: 4rem 4rem 4rem 4rem;
+    border: 3px solid white;
+    padding-top: 10px;
+    font-size: 50px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    margin-left: 5rem;
+  }
+  .lotto-body > div:hover {
+    background-color: rgb(116, 165, 44);
+    transition-duration: 0.5s;
+  }
+  .lotto-body > h1 {
+    padding-left: 5rem;
+    color: white;
+    font-size: 5rem;
+  }
+  #lotto-div > h1 {
+    background-color: rgba(255, 288, 196, 0.8);
+    width: 800px;
+    color: bisque;
+    display: inline-block;
+    border-radius: 2rem 2rem 2rem 2rem;
+    margin-bottom: 1rem;
+  }
+  #form-body {
+    justify-content: center;
+    display: flex;
+  }
+  .my-number {
+    margin-top: 1rem;
+  }
+  .my-number > form input {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-left: 1rem;
+    font-size: 25px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+  }
+
+  form input:focus {
+    outline: 2px solid rgb(255, 0, 0);
+  }
+
+  .check-result {
+    margin-top: 1rem;
+
+    color: white;
+    margin-left: 3rem;
+  }
+ 
+  .potmoney>table{
+    margin-top: 3rem;
+    margin-right: auto;
+    color: white;
+    width: 600px;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.5);    
+    border: 1px solid rgb(179, 22, 22);
+  }
+ 
+  .potmoney>table>tbody>tr td{
+    border: 1px solid white;
+    font-family: sans-serif;    
+  }
+  .potmoney>table>tbody>tr td:first-child{
+    border: 1px solid white;
+    color: rgb(243, 148, 32);
+  }
+  .potmoney>table>tbody>tr td:nth-child(2){
+    border: 1px solid white;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+  }
+  .potmoney>table>tbody>tr td:nth-child(3){
+    border: 1px solid white;
+    color: rgb(32, 243, 60);
+  }
+  .potmoney>table>tbody>tr:first-child td:last-child{
+    border: 1px solid white;
+    color: rgb(241, 255, 44);
+  }
+</style>
+<div id="lotto-div">
+  <h1 id="lotto-title">GET YOUR LUCKY ON THIS WEEKEND!&nbsp&nbsp{{turn}}</h1>
+  <span style="color: white; font-family: sans-serif">{{date}}</span>
+</div>
+<div class="lotto-body">
+  <div class="number">{{number}}</div>
+  <div class="number">{{number1}}</div>
+  <div class="number">{{number2}}</div>
+  <div class="number">{{number3}}</div>
+  <div class="number">{{number4}}</div>
+  <div class="number">{{number5}}</div>
+  <h1>+</h1>
+  <div>{{bonus[0]}}</div>
+</div>
+<div id="form-body">
+  <div class="my-number">
+    <form action="mynum" method="POST">
+      <input type="text" class="inputnumber" name="Mynum0" min="1" max="45" value="{{mynumpack[0]}}"/>
+      <input type="text" class="inputnumber" name="Mynum1" min="1" max="45" value="{{mynumpack[1]}}"/>
+      <input type="text" class="inputnumber" name="Mynum2" min="1" max="45" value="{{mynumpack[2]}}"/>
+      <input type="text" class="inputnumber" name="Mynum3" min="1" max="45" value="{{mynumpack[3]}}"/>
+      <input type="text" class="inputnumber" name="Mynum4" min="1" max="45" value="{{mynumpack[4]}}"/>
+      <input type="text" class="inputnumber" name="Mynum5" min="1" max="45" value="{{mynumpack[5]}}"/>
+      <input type="submit" value="확인" id="formbutton"/>
+    </form>
+  </div>
+  <div class="check-result">
+    <h1 id="ckresultH1">{{result}}</h1>
+  </div>
+</div>
+
+<div class="potmoney">
+    <img src="/static/css/imgs/vaultboy.gif" alt="" style="float: left; margin-left: 28%;">
+  <table>
+    <tr>
+      <td>1등</td>
+      <td>{{potmoneyAll[0]}}</td>
+      <td>6개 숫자 일치</td>
+      <td rowspan=5>{{howmany}}</td>      
+    </tr>
+    <tr>
+      <td>2등</td>
+      <td>{{potmoneyAll[1]}}</td>
+      <td>5개 숫자 일치</td>
+    </tr>
+
+    <tr>
+      <td>3등</td>
+      <td>{{potmoneyAll[2]}}</td>
+      <td>5개 숫자 일치</td>
+  
+    </tr>
+    <tr>
+      <td>4등</td>
+      <td>{{potmoneyAll[3]}}</td>
+      <td>4개 숫자 일치</td>
+    </tr>
+    <tr>
+      <td>5등</td>
+      <td>{{potmoneyAll[4]}}</td>
+      <td>3개 숫자 일치</td>
+    </tr>
+  </table>
+</div>
+<h1 style="color:white; text-shadow: -3px 5px rgba(173, 35, 35, 0.5);">Winner Winner Chicken Dinner</h1>
+{% endblock%}

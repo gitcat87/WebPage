@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+  {% block video2%}
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+    const $txar = document.getElementById('content-area')
+    const $title = document.getElementById('title-area')
+    const $writer = document.getElementById('writer-area')
+    const $btn =document.getElementById('submit-btn')
+    const $cancle = document.getElementById('cancle-btn');
+    const h4 =document.querySelector('h4');
+    const $form =document.querySelector('form');
+    
+
+    setTimeout(() => {
+    document.body.classList.add("reveal");
+    });
+
+    $txar.addEventListener('click',()=>{
+        $txar.textContent = ""       
+    })
+    $txar.addEventListener('keydown',()=>{
+      $txar.textContent=""
+    },{once:true})
+
+    
+    $cancle.addEventListener('click',()=>{
+      window.location.href ="/freeboard/board"
+    })
+
+
+    $btn.addEventListener("click",(e)=>{    
+      e.preventDefault();  // 기본 기능 막기
+      if($title.value.length <1||$writer.value.length<1){
+        alert('제목 또는 작성자에 내용이 필요합니다')
+      }else{
+        $form.submit()
+      }
+    })
+   
+
+})
+  
+
+    
+
+
+  </script>
+
+  <div id="loader" style="z-index: 2">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+
+<div id="bg-overlay"></div>
+<video
+  src="/static/videos/video1.mp4"
+  autoplay
+  muted
+  loop
+  id="bgvid-01"
+></video>
+{% endblock%}
+{% block insert%}
+<style>
+
+    .update-wrap {
+      height: 60vh;
+    }
+    .update-wrap {
+      height: 60vh;
+      width: 55%;
+      margin: auto;
+      background-color: rgba(0, 0, 0, 0.616);
+      box-shadow: 0 0 100px 10px #000000d0;
+    }
+    .updateform-wrap>form h6{
+      color: white;    
+      display: flex;
+      justify-content: left;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      margin-left: 1rem;
+    }
+  
+  
+    #button2{
+        margin-left: 48%;
+  
+    }
+    #button2> button{
+      border: transparent;
+        width: 100px;
+        border-radius: 0.5rem;
+        
+    }
+    #button2> button:hover{
+      background-color: rgba(74, 191, 245, 0.829);
+      transition-duration: 0.1s;
+    }
+  
+  </style>
+  <div class="update-wrap">
+    <div class="updateinner-wrap">
+      <div class="updateform-wrap">
+     <form action="/freeboard/insertproc" method="POST">
+ 
+      <h6 style="padding-top: 1rem;">제목</h6>
+      <input id="title-area" class="form-control" type="text" name="title" >
+      <h6>작성자</h6>
+      <input id="writer-area"class="form-control" type="text" name="writer">
+      <h6>내용</h6>
+      <textarea id="content-area"name="content" class="form-control" rows="10" style="resize: none;">내용을 입력하세요.</textarea>
+      <div style="display: flex; justify-content: center; margin-top:2rem;">
+        <button type="button" class="btn btn-primary" id="cancle-btn">취소</button>    
+      <input id="submit-btn"class="btn btn-warning" type="submit" value="확인" style="margin-left: 3rem;" >
+    </div>
+     </form>
+     </div>
+     
+    </div>
+     </div>
+     
+
+  <div id="view-bottom" style="display: flex; justify-content: center; margin-top: 1rem ;">
+  </div>
+
+{%endblock%}

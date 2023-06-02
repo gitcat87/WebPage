@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block video2%}
+<script>
+    setTimeout(() => {
+      document.body.classList.add("reveal")
+  }, 500)
+  </script>
+  <div id="loader" style="z-index: 1">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+<div id="bg-overlay"></div>
+<video src="static/videos/video1.mp4"
+autoplay muted loop id="bgvid-01">
+</video>
+{% endblock%}
+
+{% block notice%}
+<h1 style="color: white;">여기는 게시판 구역입니다</h1>
+<img src="https://dimg.donga.com/wps/NEWS/IMAGE/2022/01/28/111500268.2.jpg" alt="">
+
+
+
+
+{% endblock %}

@@ -1,0 +1,138 @@
+{% extends 'base.html'%} {% block video2%}
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const $title = document.getElementById('title-area')
+    const $writer =  document.getElementById('writer-area')
+    const $btn = document.getElementById('submit-btn')
+    const $form = document.querySelector('form')
+    const $text = document.querySelector('textarea')
+
+
+    setTimeout(() => {
+      document.body.classList.add("reveal");
+    }, 500);    
+ 
+
+    $btn.addEventListener('click',(e)=>{
+      e.preventDefault(); //기본 기능 막기
+      if($title.value.length<1||$writer.value.length<1){
+        alert('제목 또는 작성자에 내용이 필요합니다')        
+      }
+      else{
+        alert('수정되었습니다')
+        $form.submit()
+        
+      }
+    })
+
+  });
+</script>
+<div id="loader" style="z-index: 1">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div id="bg-overlay"></div>
+<video
+  src="/static/videos/video1.mp4"
+  autoplay
+  muted
+  loop
+  id="bgvid-01"
+></video>
+{% endblock%} {%block update%}
+<style>
+  .update-wrap {
+    height: 60vh;
+  }
+  .update-wrap {
+    height: 60vh;
+    width: 55%;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.616);
+    box-shadow: 0 0 100px 10px #000000d0;
+  }
+  .updateform-wrap > form h6 {
+    color: white;
+    display: flex;
+    justify-content: left;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+  }
+
+  #button2 {
+    margin-left: 48%;
+  }
+  #button2 > button {
+    border: transparent;
+    width: 100px;
+    border-radius: 0.5rem;
+  }
+  #button2 > button:hover {
+    background-color: rgba(74, 191, 245, 0.829);
+    transition-duration: 0.1s;
+  }
+</style>
+<div class="update-wrap">
+  <div class="updateinner-wrap">
+    <div class="updateform-wrap">
+      <form action="/freeboard/updateproc" method="POST">
+        <input type="hidden" name="idx" value="{{res[0]}}" />
+        <h6 style="padding-top: 1rem">제목</h6>
+        <input
+          class="form-control"
+          type="text"
+          name="title"
+          value="{{res[1]}}"
+          id="title-area"
+        />
+        <h6>작성자</h6>
+        <input
+          class="form-control"
+          type="text"
+          name="writer"
+          value="{{res[3]}}"
+          id="writer-area"
+        />
+        <h6>내용</h6>
+        <textarea
+          name="content"
+          class="form-control"
+          rows="10"
+          style="resize: none"
+        >
+{{res[2]}}</textarea
+        >
+        <div style="margin-top: 1rem">
+          <button class="btn btn-primary">
+            <a href="/freeboard/view?idx={{res[0]}}">취소</a>
+          </button>
+          <input
+            id="submit-btn"
+            class="btn btn-primary"
+            type="submit"
+            value="확인"
+            style="margin-left: 2rem"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div
+  id="view-bottom"
+  style="display: flex; justify-content: center; margin-top: 1rem"
+>
+  <div id="button2">
+    <button>
+      <a href="board" style="text-decoration: none; color: black">목록으로</a>
+    </button>
+  </div>
+</div>
+{%endblock%}
