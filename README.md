@@ -132,7 +132,7 @@ autoplay muted loop id="bgvid-01">
 
 
 ## BootStrap Carousel를 활용한 메뉴
-#
+
 
 ![](https://github.com/gitcat87/WebPage/blob/main/images/capture8.gif?raw=true)
 
@@ -185,7 +185,7 @@ autoplay muted loop id="bgvid-01">
 <br>
 
 ## CSS를 활용한 로딩바
-#
+
 
 ![](https://github.com/gitcat87/WebPage/blob/main/images/capture3.gif?raw=true)
 
@@ -195,7 +195,7 @@ autoplay muted loop id="bgvid-01">
 <br>
 
 ### 로더바
-#
+
 
 ```html
 <!-- index.html -->
@@ -270,7 +270,7 @@ body:not(.hidden).reveal #loader > div {
 <br>
 
 ### 큐브
-#
+
 ```html
 <!-- base.html -->
 
@@ -369,7 +369,7 @@ body:not(.hidden).reveal #loader > div {
 <br>
 
 ### 시계
-#
+
 
 ![](https://github.com/gitcat87/WebPage/blob/main/images/capture10.gif?raw=true)
 
@@ -436,7 +436,7 @@ body:not(.hidden).reveal #loader > div {
 <br>
 
 ## 로또 당첨 번호 확인
-#
+
 
 ![](https://github.com/gitcat87/WebPage/blob/main/images/capture2.png?raw=true)
 
@@ -560,7 +560,7 @@ potmoneyAll
 <br>
 
 ## 게시판
-#
+
 
 ![](https://github.com/gitcat87/WebPage/blob/main/images/capture11.png?raw=true)
 ![](https://github.com/gitcat87/WebPage/blob/main/images/capture6.png?raw=true)
@@ -740,7 +740,7 @@ def delete(idx):
 <br>
 
 ### 유효성 검사
-#
+
 ![](https://github.com/gitcat87/WebPage/blob/main/images/capture5.png?raw=true)
 
 #
@@ -797,7 +797,7 @@ def delete(idx):
 <br>
 
 ## 연금 수령액 조회
-#
+
 
 ![](https://github.com/gitcat87/WebPage/blob/main/images/capture9.png?raw=true)
 
@@ -981,7 +981,7 @@ def pension():
 
 
 ## 그 외 디자인적 요소
-#
+
 
 ![](https://github.com/gitcat87/WebPage/blob/main/images/capture12.gif?raw=true)
 ![](https://github.com/gitcat87/WebPage/blob/main/images/capture13.gif?raw=true)
