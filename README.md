@@ -552,6 +552,20 @@ potmoneyAll
 
 ## 나의 당첨 번호 확인하기
 
+```python
+#web.py
+@app.route('/mynum',methods=['POST','GET'])
+def mynum():
+    mynum1 = request.form['Mynum0']
+    mynum2 = request.form['Mynum1']
+    mynum3 = request.form['Mynum2']
+    mynum4 = request.form['Mynum3']
+    mynum5 = request.form['Mynum4']
+    mynum6 = request.form['Mynum5']   
+    return redirect(url_for('lotto',mynum1=mynum1,mynum2=mynum2,mynum3=mynum3,mynum4=mynum4,mynum5=mynum5,mynum6=mynum6))
+```
+
+
 <br>
 
 * redirect의 url_for()를 사용하여 사용자로부터 입력받은 파라미터 값을 lotto4.py에서 크롤링한 값과 비교 후 결과 값을 화면에 출력합니다.
